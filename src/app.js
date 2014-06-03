@@ -35,28 +35,31 @@ var HelloWorldLayer = cc.Layer.extend({
         // 3. add your codes below...
         // add a label shows "Hello World"
         // create and initialize a label
-        var helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
+        // var helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
         // position the label on the center of the screen
-        helloLabel.x = size.width / 2;
-        helloLabel.y = 0;
+        // helloLabel.x = size.width / 2;
+        // helloLabel.y = 0;
         // add the label as a child to this layer
-        this.addChild(helloLabel, 5);
+        // this.addChild(helloLabel, 5);
 
         // add "HelloWorld" splash screen"
-        this.sprite = cc.Sprite.create(res.HelloWorld_png);
-        this.sprite.attr({
-            x: size.width / 2,
-            y: size.height / 2,
-            scale: 0.5,
-            rotation: 180
-        });
-        this.addChild(this.sprite, 0);
+        // this.sprite = cc.Sprite.create(res.HelloWorld_png);
+        // this.sprite.attr({
+        //     x: size.width / 2,
+        //     y: size.height / 2,
+        //     scale: 0.5,
+        //     rotation: 180
+        // });
+        // this.addChild(this.sprite, 0);
 
-        var rotateToA = cc.RotateTo.create(2, 0);
-        var scaleToA = cc.ScaleTo.create(2, 1, 1);
+        var gPowerPlayParticles = cc.ParticleSystem.create(res.Player_particle);
+        this.addChild(gPowerPlayParticles);
 
-        this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
-        helloLabel.runAction(cc.Spawn.create(cc.MoveBy.create(2.5, cc.p(0, size.height - 40)),cc.TintTo.create(2.5,255,125,0)));
+        // var rotateToA = cc.RotateTo.create(2, 0);
+        // var scaleToA = cc.ScaleTo.create(2, 1, 1);
+
+        // this.sprite.runAction(cc.Sequence.create(rotateToA, scaleToA));
+        // helloLabel.runAction(cc.Spawn.create(cc.MoveBy.create(2.5, cc.p(0, size.height - 40)),cc.TintTo.create(2.5,255,125,0)));
         return true;
     }
 });
